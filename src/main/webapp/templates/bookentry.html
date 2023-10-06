@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Book Database</title>
+    </head>
+    <body>
+        <h1 id="book_entry_header">Enter a Book:</h1>
+        <form action="book" method="POST">
+            <label for="title_input">Title:</label>
+            <input required type="text" id="title_input" name="title_input">
+
+            <label for="author_input">Author:</label>
+            <input required type="text" id="author_input" name="author_input">
+
+            <label for="year_input">Year:</label>
+            <input required type="number" min="0" max="9999" id="year_input" name="year_input">
+
+            <label for="notes_input">Notes:</label>
+            <textarea id="notes_input" name="notes_input"></textarea>
+
+            <button>Enter</button>
+        </form>
+
+        <div id="current_books">
+            <h1 id="book_list_header">Current Books:</h1>
+            <ul>
+                {{ books }}
+            </ul>
+        </div>
+    </body>
+</html>
+

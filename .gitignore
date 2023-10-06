@@ -1,0 +1,11 @@
+# ignore Intellij's configurations, if you need to
+.idea/
+# ignore Maven's build directory, as it gets rebuilt during compilation
+target/
+
+# the database directory
+db/
+
+# a file that is created when the system is running, and deleted
+# when the system has stopped
+SYSTEM_RUNNING
