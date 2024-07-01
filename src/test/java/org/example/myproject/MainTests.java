@@ -1,6 +1,6 @@
 package org.example.myproject;
 
-import com.renomad.minum.Context;
+import com.renomad.minum.state.Context;
 import com.renomad.minum.htmlparsing.TagName;
 import com.renomad.minum.web.FullSystem;
 import com.renomad.minum.web.FunctionalTesting;
