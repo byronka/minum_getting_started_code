@@ -2,7 +2,8 @@ package org.example.myproject;
 
 import com.renomad.minum.database.Db;
 import com.renomad.minum.templating.TemplateProcessor;
-import com.renomad.minum.web.Request;
+import com.renomad.minum.web.IRequest;
+import com.renomad.minum.web.IResponse;
 import com.renomad.minum.web.Response;
 
 import java.io.IOException;
@@ -28,7 +29,7 @@ public class Book {
     /**
      * Returns the web page for creating book entries and viewing the existing books
      */
-    public Response getBookPage(Request request) {
+    public IResponse getBookPage(IRequest request) {
         Collection<BookDbData> books = bookDb.values();
         String renderedBooks;
         if (books.isEmpty()) {
@@ -47,13 +48,13 @@ public class Book {
     /**
      * This receives a POST request with data about books
      */
-    public Response postBook(Request request) {
+    public IResponse postBook(IRequest request) {
         // get data from the user.  No validation, blindly trust the input
         // certainly something to improve
-        String title = request.body().asString("title_input");
-        String author = request.body().asString("author_input");
-        int year = Integer.parseInt(request.body().asString("year_input"));
-        String notes = request.body().asString("notes_input");
+        String title = request.getBody().asString("title_input");
+        String author = request.getBody().asString("author_input");
+        int year = Integer.parseInt(request.getBody().asString("year_input"));
+        String notes = request.getBody().asString("notes_input");
 
         // store the data in the database
         BookDbData bookDbData = new BookDbData(0, title, author, year, notes);
