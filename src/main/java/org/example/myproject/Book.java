@@ -1,6 +1,6 @@
 package org.example.myproject;
 
-import com.renomad.minum.database.Db;
+import com.renomad.minum.database.AbstractDb;
 import com.renomad.minum.templating.TemplateProcessor;
 import com.renomad.minum.web.IRequest;
 import com.renomad.minum.web.IResponse;
@@ -18,9 +18,9 @@ import static com.renomad.minum.utils.StringUtils.safeHtml;
 public class Book {
 
     private final TemplateProcessor bookTemplate;
-    private final Db<BookDbData> bookDb;
+    private final AbstractDb<BookDbData> bookDb;
 
-    public Book(Db<BookDbData> bookDb) throws IOException {
+    public Book(AbstractDb<BookDbData> bookDb) throws IOException {
         String myTemplate = Files.readString(Path.of("src/main/webapp/templates/bookentry.html"));
         this.bookTemplate = TemplateProcessor.buildProcessor(myTemplate);
         this.bookDb = bookDb;

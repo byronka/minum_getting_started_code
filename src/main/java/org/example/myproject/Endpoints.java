@@ -15,7 +15,7 @@ public class Endpoints {
     public Endpoints(FullSystem fullSystem) {
         try {
             this.webFramework = fullSystem.getWebFramework();
-            this.book = new Book(fullSystem.getContext().getDb("books", BookDbData.EMPTY));
+            this.book = new Book(fullSystem.getContext().getDb2("books", BookDbData.EMPTY));
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
