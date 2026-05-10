@@ -8,6 +8,7 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.Map;
 
 import static com.renomad.minum.testing.TestFramework.assertEquals;
@@ -28,7 +29,7 @@ public class MainTests {
     }
 
     @AfterClass
-    public static void cleanup() {
+    public static void cleanup() throws IOException {
         var fs = context.getFullSystem();
         fs.shutdown();
         context.getLogger().stop();
